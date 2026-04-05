@@ -1,0 +1,2 @@
+# In main parent directory cmake -Bbuild
+# In build/ sub directory cmake --build . --config Release
