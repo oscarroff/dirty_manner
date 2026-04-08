@@ -14,7 +14,7 @@ cmake_minimum_required(VERSION 3.22)
 # `project()` command. `project()` sets up some helpful variables that describe source/binary
 # directories, and the current project version. This is a standard CMake command.
 
-project(DIRTY_MANNER VERSION 0.0.1)
+project(DIRTY_MANNER VERSION 0.0.4)
 
 # If you've installed JUCE somehow (via a package manager, or directly using the CMake install
 # target), you'll need to tell this project that it depends on the installed copy of JUCE. If you've
@@ -113,3 +113,10 @@ target_link_libraries(dirty_manner
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
+
+# Copy built target to library
+# add_custom_command(TARGET dirty_manner POST_BUILD
+#     COMMAND ${CMAKE_COMMAND} -E copy_directory
+#             $<TARGET_BUNDLE_DIR:dirty_manner_VST3>
+#             "$ENV{HOME}/Library/Audio/Plug-Ins/VST3/dirty_manner.vst3"
+# )
